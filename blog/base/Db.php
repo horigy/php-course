@@ -1,4 +1,5 @@
 <?php
+namespace Base;
 
 class Db
 {
@@ -32,8 +33,14 @@ class Db
         $dbPassword = DB_PASSWORD;
 
         if (!$this->pdo) {
-            $this->pdo = new \PDO("mysql:host=$host;dbname=$dbName", $dbUser, $dbPassword);
-
+            $this->pdo = new \PDO(
+                "mysql:host=$host;dbname=$dbName",
+                $dbUser,
+                $dbPassword,
+                [
+                    \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"
+                ]
+            );
         }
 
         return $this->pdo;
@@ -118,7 +125,7 @@ class Db
         foreach ($this->log as $elem) {
             $res = $elem[1] . ': ' . $elem[0] . ' (' . $elem[2] . ') [' . $elem[3] . ']' . "\n";
         }
-        return '<pre>' . $res . '</pre>';
+        return '<pre>' . $res .'</pre>';
     }
 
 
