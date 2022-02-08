@@ -1,0 +1,16 @@
+{
+  "name": "vendor_name/hw-5",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "fox-race",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "swiftmailer/swiftmailer": "^6.0",
+    "intervention/image": "^2.5"
+  }
+}
